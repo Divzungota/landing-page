@@ -1,30 +1,132 @@
 <!DOCTYPE html>
-   <html lang="es">
-   <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>
-       Mi Landing Page Increíble
-     </title>
-      <link rel="stylesheet" href="estilo.css">
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Artístico de Rubel Josue Marin Osorio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
- <header>
-  <nav>
-      <div class="logo">MiMarca</div>
-    <ul class="menu">    
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+<body class="min-h-screen flex flex-col" id="main-body">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white text-center py-6">
+    <img src="images/logo.png" alt="Logo Artístico" class="h-24 mx-auto">
+    <h1 class="text-4xl font-bold mt-4">Rubel Josue Marin Osorio</h1>
+    <p class="text-lg mt-2">Artista Extraordinario</p>
+  </header>
+
+  <!-- Banner -->
+  <section class="w-full">
+    <img src="images/banner.png" alt="Banner Artístico" class="w-full h-64 object-cover">
+  </section>
+
+  <!-- Estilo Personalizado -->
+  <section class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Personaliza tu Página</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Color Sólido -->
+      <div>
+        <label for="solid-color" class="block text-sm font-medium">Color Sólido</label>
+        <input type="color" id="solid-color" class="w-full h-10 mt-2">
+      </div>
+      <!-- Degradado -->
+      <div>
+        <label for="gradient-color1" class="block text-sm font-medium">Degradado (Color 1)</label>
+        <input type="color" id="gradient-color1" class="w-full h-10 mt-2">
+        <label for="gradient-color2" class="block text-sm font-medium mt-4">Degradado (Color 2)</label>
+        <input type="color" id="gradient-color2" class="w-full h-10 mt-2">
+      </div>
+      <!-- Patrón -->
+      <div>
+        <label for="pattern" class="block text-sm font-medium">Patrón</label>
+        <select id="pattern" class="w-full h-10 mt-2 border rounded">
+          <option value="none">Sin Patrón</option>
+          <option value="dots">Puntos</option>
+          <option value="squares">Cuadrados</option>
+          <option value="waves">Ondas</option>
+        </select>
+      </div>
+    </div>
+    <button id="apply-style" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Aplicar Estilo</button>
+  </section>
+
+  <!-- Portafolio -->
+  <section class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Portafolio</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="bg-white p-4 shadow rounded">
+        <img src="images/portfolio1.jpg" alt="Obra 1" class="w-full h-48 object-cover">
+        <p class="mt-2 text-center">Obra 1</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded">
+        <img src="images/portfolio2.jpg" alt="Obra 2" class="w-full h-48 object-cover">
+        <p class="mt-2 text-center">Obra 2</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded">
+        <img src="images/portfolio3.jpg" alt="Obra 3" class="w-full h-48 object-cover">
+        <p class="mt-2 text-center">Obra 3</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Condiciones de Trabajo -->
+  <section class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Condiciones de Trabajo</h2>
+    <ul class="list-disc pl-6">
+      <li>Capaz de dibujar: Retratos, paisajes, arte digital.</li>
+      <li>No dibujo: Contenido explícito o temas sensibles.</li>
+      <li>Tiempo de entrega: 5-10 días hábiles.</li>
+      <li>Revisiones: Hasta 3 revisiones incluidas.</li>
     </ul>
-  </nav>
- </header>
-<main>
-    <section id="inicio" class="hero">
-      <h1>¡Transforma tu Futuro Digital!</h1>
-      <p>Descubre el poder de la programación y crea proyectos increíbles</p>
-      <button class="cta-button">Comenzar Ahora</button>
-    </section>
-</main>
+  </section>
+
+  <!-- Precios -->
+  <section class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Precios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white p-4 shadow rounded text-center">
+        <h3 class="text-xl font-semibold">Básico</h3>
+        <p class="text-2xl">$50</p>
+        <p>Ilustración simple, 1 revisión.</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded text-center">
+        <h3 class="text-xl font-semibold">Estándar</h3>
+        <p class="text-2xl">$100</p>
+        <p>Ilustración detallada, 2 revisiones.</p>
+      </div>
+      <div class="bg-white p-4 shadow rounded text-center">
+        <h3 class="text-xl font-semibold">Premium</h3>
+        <p class="text-2xl">$200</p>
+        <p>Obra compleja, 3 revisiones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redes Sociales -->
+  <section class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Redes Sociales</h2>
+    <div class="flex justify-center space-x-4">
+      <a href="https://instagram.com/rubelart" target="_blank" class="text-blue-600 hover:underline">Instagram</a>
+      <a href="https://twitter.com/rubelart" target="_blank" class="text-blue-600 hover:underline">Twitter</a>
+      <a href="https://behance.net/rubelart" target="_blank" class="text-blue-600 hover:underline">Behance</a>
+    </div>
+  </section>
+
+  <!-- Métodos de Pago -->
+  <section class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Métodos de Pago</h2>
+    <div class="flex justify-center space-x-4">
+      <p>PayPal</p>
+      <p>Transferencia Bancaria</p>
+      <p>Criptomonedas</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6 mt-auto">
+    <p>&copy; 2025 Rubel Josue Marin Osorio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/scripts.js"></script>
 </body>
 </html>
