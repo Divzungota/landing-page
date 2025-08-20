@@ -1,0 +1,24 @@
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+/* Selector de clase */
+.hero {
+text-align: center;
+padding: 100px 20px;
+color: white;
+}
+/* Selector de ID */
+#inicio {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+/* Pseudo-clase para interactividad */
+.cta-button:hover {
+transform: scale(1.05);
+box-shadow: 0 10px 25px rgba(0,0,0,0.2);
