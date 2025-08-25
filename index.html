@@ -4,165 +4,285 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      @apply bg-gradient-to-br from-pink-200 via-purple-100 to-blue-200;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f9c1cc, #e2d1f9, #c9e4ff);
+      margin: 0;
+      padding: 0;
     }
 
     header {
-      @apply bg-gradient-to-r from-purple-600 to-blue-500 text-white;
+      background: linear-gradient(to right, #6b46c1, #4299e1);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    header .text-gray-800 {
-      @apply text-white;
+    header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    header .logo img {
+      height: 40px;
+    }
+
+    header nav {
+      display: flex;
+      gap: 1.5rem;
     }
 
     header nav a {
-      @apply text-white transition-all duration-300 ease-in-out;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     header nav a:hover {
-      @apply text-pink-300 transform scale-110;
+      color: #f687b3;
+      transform: scale(1.1);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    #inicio {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    #inicio .text-content {
+      text-align: center;
     }
 
     #inicio h1 {
-      @apply text-purple-800;
+      color: #4c1d95;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
 
     #inicio p {
-      @apply text-gray-700;
+      color: #4a5568;
+      margin-bottom: 1.5rem;
     }
 
     #inicio a {
-      @apply bg-pink-500 text-white px-6 py-2 rounded-full transition-all duration-300 ease-in-out;
+      background: #ed64a6;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     #inicio a:hover {
-      @apply bg-blue-600 transform scale-105 shadow-lg;
+      background: #2b6cb0;
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     #inicio img {
-      @apply transition-all duration-300 ease-in-out;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     #inicio img:hover {
-      @apply transform scale-105 shadow-xl;
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #promocion {
+      padding: 3rem 0;
     }
 
     #promocion h2 {
-      @apply text-purple-800;
+      color: #4c1d95;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
-    #promocion .grid > div {
-      @apply bg-gradient-to-br from-blue-50 to-pink-50 transition-all duration-300 ease-in-out;
+    #promocion .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
-    #promocion .grid > div:hover {
-      @apply transform scale-105 shadow-xl bg-gradient-to-br from-pink-100 to-blue-100;
+    #promocion .card {
+      background: linear-gradient(to bottom right, #eff6ff, #fef6f8);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
 
-    #promocion .grid > div h3 {
-      @apply text-blue-600;
+    #promocion .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(to bottom right, #fed7e2, #bee3f8);
     }
 
-    #promocion .grid > div p {
-      @apply text-gray-700;
+    #promocion .card h3 {
+      color: #2b6cb0;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    #promocion .card p {
+      color: #4a5568;
     }
 
     #contacto {
-      @apply bg-gradient-to-r from-purple-200 to-pink-200;
+      background: linear-gradient(to right, #e9d8fd, #fed7e2);
+      padding: 3rem 0;
+      border-radius: 0.5rem;
     }
 
     #contacto h2 {
-      @apply text-purple-800;
+      color: #4c1d95;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #contacto .contact-content {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     #contacto p {
-      @apply text-gray-700;
+      color: #4a5568;
+      margin-bottom: 1rem;
     }
 
     #contacto a {
-      @apply text-blue-500 transition-all duration-300 ease-in-out;
+      color: #2b6cb0;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     #contacto a:hover {
-      @apply text-pink-500 transform scale-105;
+      color: #ed64a6;
+      transform: scale(1.05);
     }
 
     footer {
-      @apply bg-gradient-to-r from-purple-800 to-blue-800;
+      background: linear-gradient(to right, #4c1d95, #2b6cb0);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      #inicio {
+        flex-direction: row;
+      }
+
+      #inicio .text-content,
+      #inicio .image-content {
+        width: 50%;
+      }
+
+      #inicio .text-content {
+        text-align: left;
+      }
+
+      #promocion .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
   <!-- Header -->
-  <header class="bg-white shadow-md py-4">
-    <div class="container mx-auto flex justify-between items-center px-4">
+  <header>
+    <div class="container">
       <!-- Logo Placeholder -->
-      <div class="text-lg font-bold text-gray-800">
-        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo" class="h-10">
+      <div class="logo">
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo">
       </div>
       <!-- Navigation -->
-      <nav class="flex space-x-6">
-        <a href="#inicio" class="text-gray-600 hover:text-blue-500">Inicio</a>
-        <a href="#promocion" class="text-gray-600 hover:text-blue-500">Qué se promociona</a>
-        <a href="#contacto" class="text-gray-600 hover:text-blue-500">Contacto</a>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="#inicio">Inicio</a>
+        <a href="#promocion">Qué se promociona</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12">
+  <main>
     <!-- Hero Section -->
-    <section id="inicio" class="flex flex-col md:flex-row items-center gap-8">
+    <section id="inicio">
       <!-- Text Content -->
-      <div class="md:w-1/2 text-center md:text-left">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">Bienvenido(a), [Nombre de la Persona]</h1>
-        <p class="text-gray-600 mb-6">Esta es tu landing page personalizada. Aquí puedes destacar tu mensaje, producto o servicio con un diseño limpio y profesional.</p>
-        <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600">Contáctame</a>
+      <div class="text-content">
+        <h1>Bienvenido(a), [Nombre de la Persona]</h1>
+        <p>Esta es tu landing page personalizada. Aquí puedes destacar tu mensaje, producto o servicio con un diseño limpio y profesional.</p>
+        <a href="#contacto" aria-label="Contact us">Contáctame</a>
       </div>
       <!-- Image Placeholder -->
-      <div class="md:w-1/2">
-        <img src="https://via.placeholder.com/400x300?text=Tu+Imagen" alt="Imagen Personal" class="rounded-lg shadow-md w-full">
+      <div class="image-content">
+        <img src="https://via.placeholder.com/400x300?text=Tu+Imagen" alt="Imagen Personal">
       </div>
     </section>
 
     <!-- Promoción Section -->
-    <section id="promocion" class="py-12">
-      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Qué se promociona</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Producto/Servicio 1</h3>
-          <p class="text-gray-600">Descripción breve del producto o servicio que se promociona. Personaliza este texto según tus necesidades.</p>
+    <section id="promocion">
+      <h2>Qué se promociona</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Producto/Servicio 1</h3>
+          <p>Descripción breve del producto o servicio que se promociona. Personaliza este texto según tus necesidades.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Producto/Servicio 2</h3>
-          <p class="text-gray-600">Otra opción para destacar tus productos o servicios. Edita este contenido a tu gusto.</p>
+        <div class="card">
+          <h3>Producto/Servicio 2</h3>
+          <p>Otra opción para destacar tus productos o servicios. Edita este contenido a tu gusto.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Producto/Servicio 3</h3>
-          <p class="text-gray-600">Añade más detalles sobre lo que ofreces. Este es un espacio flexible para tu promoción.</p>
+        <div class="card">
+          <h3>Producto/Servicio 3</h3>
+          <p>Añade más detalles sobre lo que ofreces. Este es un espacio flexible para tu promoción.</p>
         </div>
       </div>
     </section>
 
     <!-- Contacto Section -->
-    <section id="contacto" class="py-12 bg-gray-200 rounded-lg">
-      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Contacto</h2>
-      <div class="max-w-lg mx-auto">
-        <p class="text-gray-600 text-center mb-4">Ponte en-dot: en contacto con nosotros para más información.</p>
-        <div class="text-center">
-          <p class="text-gray-600">Email: <a href="mailto:tuemail@ejemplo.com" class="text-blue-500 hover:underline">tuemail@ejemplo.com</a></p>
-          <p class="text-gray-600">Teléfono: <a href="tel:+1234567890" class="text-blue-500 hover:underline">+123 456 7890</a></p>
-        </div>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contact-content">
+        <p>Ponte en contacto con nosotros para más información.</p>
+        <p>Email: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
+        <p>Teléfono: <a href="tel:+1234567890">+123 456 7890</a></p>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto text-center">
+  <footer>
+    <div class="container">
       <p>&copy; 2025 [Nombre de la Persona]. Todos los derechos reservados.</p>
     </div>
   </footer>
