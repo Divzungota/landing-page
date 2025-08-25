@@ -1,195 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Artística - Talento Único</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="container">
-        <aside class="sidebar">
-            <h2>Personaliza</h2>
-            <div class="form-container">
-                <label>Nombre Artístico: <input type="text" id="name-input" oninput="updateContent('artistic-name', this.value, 'Nombre Artístico')"></label>
-                <label>Logo: <input type="file" id="logo-input" accept="image/*" onchange="updateImage('logo-img', this)"></label>
-                <label>Banner: <input type="file" id="banner-input" accept="image/*" onchange="updateImage('banner-img', this)"></label>
-                <label>Portafolio: <input type="file" id="port-input" accept="image/*" multiple onchange="updatePortfolio(this)"></label>
-                <label>Fondo: 
-                    <select id="bg-type" onchange="updateBackground()">
-                        <option value="solid">Color Sólido</option>
-                        <option value="gradient2">Degradado 2 Colores</option>
-                        <option value="gradient3">Degradado 3 Colores</option>
-                        <option value="dots">Puntos</option>
-                        <option value="lines">Líneas Diagonales</option>
-                    </select>
-                </label>
-                <div id="solid-options" class="bg-options">
-                    <label>Color: <input type="color" id="solid-color" value="#e0f7fa" onchange="updateBackground()"></label>
-                </div>
-                <div id="gradient2-options" class="bg-options" style="display:none;">
-                    <label>C1: <input type="color" id="g2-c1" value="#ff6f61" onchange="updateBackground()"></label>
-                    <label>C2: <input type="color" id="g2-c2" value="#6b7280" onchange="updateBackground()"></label>
-                </div>
-                <div id="gradient3-options" class="bg-options" style="display:none;">
-                    <label>C1: <input type="color" id="g3-c1" value="#ff6f61" onchange="updateBackground()"></label>
-                    <label>C2: <input type="color" id="g3-c2" value="#a5b4fc" onchange="updateBackground()"></label>
-                    <label>C3: <input type="color" id="g3-c3" value="#4b5e6a" onchange="updateBackground()"></label>
-                </div>
-                <label>Precios (línea por ítem): <textarea id="prices-input" oninput="updateList('prices-list', this.value)"></textarea></label>
-                <label>Condiciones: <textarea id="conditions-input" oninput="updateContent('conditions-text', this.value, 'Puedo dibujar retratos, paisajes, y más. No dibujo contenido NSFW.')"></textarea></label>
-                <label>Redes (Red URL por línea): <textarea id="social-input" oninput="updateSocial(this.value)"></textarea></label>
-                <label>Pagos (línea por ítem): <textarea id="payments-input" oninput="updateList('payments-list', this.value)"></textarea></label>
-            </div>
-        </aside>
-        <main>
-            <header>
-                <div class="banner">
-                    <img id="banner-img" src="images/banner.jpg" alt="Banner Artístico">
-                </div>
-                <div class="logo">
-                    <img id="logo-img" src="images/logo.png" alt="Logo Artístico">
-                </div>
-                <h1 id="artistic-name">Nombre Artístico</h1>
-                <p id="promo">¡Explora el talento único de este artista! Creaciones que inspiran, estilos que cautivan y un portafolio que no te puedes perder.</p>
-            </header>
-            <section id="portfolio">
-                <h2>Portafolio</h2>
-                <div class="gallery"></div>
-            </section>
-            <section id="prices">
-                <h2>Precios</h2>
-                <ul id="prices-list">
-                    <li>Ejemplo: Ilustración digital - $75</li>
-                </ul>
-            </section>
-            <section id="conditions">
-                <h2>Condiciones de Trabajo</h2>
-                <p id="conditions-text">Puedo dibujar retratos, paisajes, y más. No dibujo contenido NSFW.</p>
-            </section>
-            <section id="social">
-                <h2>Redes Sociales</h2>
-                <div id="social-links">
-                    <a href="https://example.com">Ejemplo</a><br>
-                </div>
-            </section>
-            <section id="payments">
-                <h2>Métodos de Pago</h2>
-                <ul id="payments-list">
-                    <li>PayPal</li>
-                    <li>Transferencia</li>
-                </ul>
-            </section>
-        </main>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <!-- Logo Placeholder -->
+      <div class="text-lg font-bold text-gray-800">
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo" class="h-10">
+      </div>
+      <!-- Navigation -->
+      <nav class="flex space-x-6">
+        <a href="#inicio" class="text-gray-600 hover:text-blue-500">Inicio</a>
+        <a href="#promocion" class="text-gray-600 hover:text-blue-500">Qué se promociona</a>
+        <a href="#contacto" class="text-gray-600 hover:text-blue-500">Contacto</a>
+      </nav>
     </div>
-    <script>
-        function updateContent(id, value, defaultValue) {
-            const element = document.getElementById(id);
-            element.style.opacity = 0;
-            setTimeout(() => {
-                element.innerText = value || defaultValue;
-                element.style.opacity = 1;
-            }, 200);
-        }
+  </header>
 
-        function updateImage(id, input) {
-            const file = input.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById(id);
-                    img.style.opacity = 0;
-                    setTimeout(() => {
-                        img.src = e.target.result;
-                        img.style.opacity = 1;
-                    }, 200);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- Hero Section -->
+    <section id="inicio" class="flex flex-col md:flex-row items-center gap-8">
+      <!-- Text Content -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Bienvenido(a), [Nombre de la Persona]</h1>
+        <p class="text-gray-600 mb-6">Esta es tu landing page personalizada. Aquí puedes destacar tu mensaje, producto o servicio con un diseño limpio y profesional.</p>
+        <a href="#contacto" class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600">Contáctame</a>
+      </div>
+      <!-- Image Placeholder -->
+      <div class="md:w-1/2">
+        <img src="https://via.placeholder.com/400x300?text=Tu+Imagen" alt="Imagen Personal" class="rounded-lg shadow-md w-full">
+      </div>
+    </section>
 
-        function updatePortfolio(input) {
-            const files = input.files;
-            const gallery = document.querySelector('.gallery');
-            gallery.style.opacity = 0;
-            gallery.innerHTML = '';
-            for (let file of files) {
-                const img = document.createElement('img');
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    img.src = e.target.result;
-                    img.alt = 'Imagen de portafolio';
-                    gallery.appendChild(img);
-                    setTimeout(() => { gallery.style.opacity = 1; }, 200);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
+    <!-- Promoción Section -->
+    <section id="promocion" class="py-12">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Qué se promociona</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Producto/Servicio 1</h3>
+          <p class="text-gray-600">Descripción breve del producto o servicio que se promociona. Personaliza este texto según tus necesidades.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Producto/Servicio 2</h3>
+          <p class="text-gray-600">Otra opción para destacar tus productos o servicios. Edita este contenido a tu gusto.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Producto/Servicio 3</h3>
+          <p class="text-gray-600">Añade más detalles sobre lo que ofreces. Este es un espacio flexible para tu promoción.</p>
+        </div>
+      </div>
+    </section>
 
-        function updateList(id, text) {
-            const ul = document.getElementById(id);
-            ul.style.opacity = 0;
-            setTimeout(() => {
-                ul.innerHTML = text.split('\n').filter(line => line.trim()).map(line => `<li>${line.trim()}</li>`).join('');
-                ul.style.opacity = 1;
-            }, 200);
-        }
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-12 bg-gray-200 rounded-lg">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Contacto</h2>
+      <div class="max-w-lg mx-auto">
+        <p class="text-gray-600 text-center mb-4">Ponte en contacto con nosotros para más información.</p>
+        <div class="text-center">
+          <p class="text-gray-600">Email: <a href="mailto:tuemail@ejemplo.com" class="text-blue-500 hover:underline">tuemail@ejemplo.com</a></p>
+          <p class="text-gray-600">Teléfono: <a href="tel:+1234567890" class="text-blue-500 hover:underline">+123 456 7890</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        function updateSocial(text) {
-            const div = document.getElementById('social-links');
-            div.style.opacity = 0;
-            setTimeout(() => {
-                div.innerHTML = text.split('\n').filter(line => line.trim()).map(line => {
-                    const parts = line.trim().split(' ');
-                    const name = parts[0];
-                    const url = parts.slice(1).join(' ');
-                    return `<a href="${url}">${name}</a><br>`;
-                }).join('');
-                div.style.opacity = 1;
-            }, 200);
-        }
-
-        function showBgOptions() {
-            document.querySelectorAll('.bg-options').forEach(opt => opt.style.display = 'none');
-            const type = document.getElementById('bg-type').value;
-            if (type === 'solid') document.getElementById('solid-options').style.display = 'block';
-            if (type === 'gradient2') document.getElementById('gradient2-options').style.display = 'block';
-            if (type === 'gradient3') document.getElementById('gradient3-options').style.display = 'block';
-        }
-
-        function updateBackground() {
-            showBgOptions();
-            const type = document.getElementById('bg-type').value;
-            const body = document.body.style;
-            body.backgroundImage = '';
-            body.backgroundSize = '';
-            body.backgroundPosition = '';
-            if (type === 'solid') {
-                body.background = document.getElementById('solid-color').value;
-            } else if (type === 'gradient2') {
-                const c1 = document.getElementById('g2-c1').value;
-                const c2 = document.getElementById('g2-c2').value;
-                body.background = `linear-gradient(135deg, ${c1}, ${c2})`;
-            } else if (type === 'gradient3') {
-                const c1 = document.getElementById('g3-c1').value;
-                const c2 = document.getElementById('g3-c2').value;
-                const c3 = document.getElementById('g3-c3').value;
-                body.background = `linear-gradient(135deg, ${c1}, ${c2}, ${c3})`;
-            } else if (type === 'dots') {
-                body.backgroundColor = '#f5f5f5';
-                body.backgroundImage = 'radial-gradient(#0288d1 1.5px, #f5f5f5 1.5px)';
-                body.backgroundSize = '20px 20px';
-            } else if (type === 'lines') {
-                body.backgroundColor = '#f5f5f5';
-                body.backgroundImage = 'repeating-linear-gradient(45deg, #0288d1 0, #0288d1 2px, transparent 2px, transparent 10px)';
-                body.backgroundSize = 'auto';
-            }
-        }
-    </script>
-</body>
-</html>
-
-  <script src="js/scripts.js"></script>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 [Nombre de la Persona]. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>
